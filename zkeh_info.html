@@ -1,11 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ze Hang Space</title>
+<title>Ze Hang Space</title>
+<script>
+
+function copy_to_clipboard( elm_id ) {
+    var text = document.getElementById( elm_id ).innerHTML;
+    navigator.clipboard.writeText( text );
+}
+
+</script>
 </head>
 
 <body>
-    <h1>Welcome to Ze Hang Space</h1>
+<h1 style="background-color:DodgerBlue;font-size:400%;text-align:center;">Ze Hang Space</h1>
+<h2 style="font-size:200%;">My OOP Plan:</h2>
+<p>ww37.1 -- Annual leave<br>ww37.2 -- Annual leave<br>ww37.3 -- WFH<br>ww37.4 -- WFH</p>
+
+<p><i><b>Please expect slow response</i></b><br></p>
+<div>
+	<div id="junnhoe" style="display: none;">junn.hoe.wong@intel.com</div>
+	<div id="abe" style="display: none;">eapen.abraham.adangapurathu@intel.com</div>
+	<div id="thiru" style="display: none;">thirumaran.koval.krishnan@intel.com</div>
+	<p>
+		For VATT related, please contact:<br>
+		> Wong, Junn Hoe &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&thinsp;<button onclick="copy_to_clipboard('junnhoe')">Copy Junn Hoe's email</button></br>
+		> Adangapurathu, Eapen Abraham&ensp;<button onclick="copy_to_clipboard('abe')">Copy Abe's email</button>
+	</p>
+	<p>
+		For others, please contact:<br>
+		> Koval Krishnan, Thirumaran&emsp;&emsp;<button onclick="copy_to_clipboard('thiru')">Copy Thiru's email</button></br>
+	</p>
+</div>
+
+<h2 style="font-size:200%;">Related WiKi:</h2>
+<p><i><b>Hope these Wiki can help you </i>&#128516;</b><br></p>
+<div>
+	<p><a href="https://wiki.ith.intel.com/display/MiniBIOS">Minibios Wiki</a> --> Minibios framework and override method</p>
+	<p><a href="https://wiki.ith.intel.com/display/ddgnvlemu/Trackers">Emulation Tracker Wiki</a> --> Tracker owner info, disable switch and TOML file configuraion</p>
+	<p><a href="https://wiki.ith.intel.com/display/ddgnvlemu/How+to+build+clone+run+model">TLS build and run</a> --> How to build and run TLS model</p>
+	<p><a href="https://wiki.ith.intel.com/display/ITSddgmtlemu/Modular+testbench+for+reduced-core+targets">Modular testbench for reduced-core target</a></p>
+</div>
+<img src="https://toggl.com/blog/wp-content/uploads/2019/09/unnamed-21.png">
 
 </body>
 </html>
+
+
