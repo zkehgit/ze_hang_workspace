@@ -1,0 +1,30 @@
+Minibios initial bring-up in PKG
+- Need a more robust way to determine for PKG DUT name.
+  - Create a new switch named "RUNNING_ON_PKG_MODEL" which is always True by default.
+  - CDIE and HUB will have to override this switch. (PKG is highest priority)
+- mmio_creg_field_info_cache.csv and mmio_creg_info_cache.csv are not exist for PKG as these 2 files were created in dielet output area.
+  - Manually create copies for these 2 files in PKG model.
+  - Ideally this should be created under src/val/codegen area, where PKG can reach also.
+  - mmio_creg files location: src/val/emu/minibios/nvlsi5/osxml2crif/
+
+
+EARLY_PM_CONFIG enabling in CDIE
+- Create a script to auto-append the HUB bios mailbox into CDIE mmio_creg files.
+  - script location: src/val/emu/scripts/append_mmio_creg_for_minibios.py.
+  - this is added as part of EmuPost stage, together with "crif" action.
+- Create minibios_BARS_values.csv to declare MCHBAR register.
+  - csv file location: src/val/emu/minibios/minibios_BARS_values.csv.
+  - value is following HUB's
+- Valid configurations showns below:
+  EARLY_PM_CONFIG_ENABLE=0, SET_BIOS_RST_CPL =0, WAIT_FOR_PHASE4_COMPLETE=0
+  EARLY_PM_CONFIG_ENABLE=1, SET_BIOS_RST_CPL =0, WAIT_FOR_PHASE4_COMPLETE=0
+  EARLY_PM_CONFIG_ENABLE=1, SET_BIOS_RST_CPL =1, WAIT_FOR_PHASE4_COMPLETE=0
+  EARLY_PM_CONFIG_ENABLE=1, SET_BIOS_RST_CPL =1, WAIT_FOR_PHASE4_COMPLETE=1
+  ** If user is setting invalid configuration, it will fail directly without asm file created
+- Changes released in 24.04.004 minibios version.
+
+
+Multi-dielet support for WAIT_FOR_PHASE4_COMPLETE in PKG
+- Currently users still have to manually determine which dielet has the most latest PHASE4 complete, and update the corresponding patch2_addr in minibios override file.
+- Issue filed: https://github.com/intel-innersource/applications.automation.client-hw.emulation.minibios/issues/222
+  - Proposed solution: Place the BSP into a monitor/mwait state and monitor which dielet complete phase4 first.
