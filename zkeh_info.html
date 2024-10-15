@@ -1,50 +1,138 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<script>
+  <script>
+	function copy_to_clipboard( elm_id ) {
+		var text = document.getElementById( elm_id ).innerHTML;
+		navigator.clipboard.writeText( text );
+	}
+  </script>
 
-function copy_to_clipboard( elm_id ) {
-    var text = document.getElementById( elm_id ).innerHTML;
-    navigator.clipboard.writeText( text );
-}
+  <style>
+    <style>* {
+      margin: 0;
+      padding: 0;
+    }
 
-</script>
+    body {
+      background: white;
+    }
+	
+    .container {
+      border: 1px solid grey;
+      margin: 1rem;
+    }
+
+    [data-tab-info] {
+      display: none;
+    }
+
+    .active[data-tab-info] {
+      display: block;
+    }
+
+    .tab-content {
+      margin-top: 1rem;
+      padding-left: 1rem;
+      <!-- font-size: 25px; -->
+      font-family: sans-serif;
+      <!-- font-weight: bold; -->
+      color: rgb(0, 0, 0);
+    }
+
+    .tabs {
+      border-bottom: 1px solid grey;
+      background-color: rgb(0, 128, 255);
+      font-size: 20px;
+	  font-weight: bold;
+      color: rgb(0, 0, 0);
+      display: flex;
+      margin: 0;
+    }
+
+    .tabs span {
+      background: rgb(0, 128, 255);
+      padding: 10px;
+	  padding-right: 250px;
+      border: 1px solid rgb(255, 255, 255);
+    }
+
+    .tabs span:hover {
+      background: rgb(153, 204, 255);
+      cursor: pointer;
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
-<h1 style="background-color:DodgerBlue;font-size:400%;text-align:center;">Ze Hang Space</h1>
-<h2 style="font-size:200%;">My OOP Plan:</h2>
-<p>No OOP plan, working as usual</p>
 
-<!--
-<p><i><b>Please expect slow response</i></b><br></p>
-<div>
-	<div id="junnhoe" style="display: none;">junn.hoe.wong@intel.com</div>
-	<div id="abe" style="display: none;">eapen.abraham.adangapurathu@intel.com</div>
-	<div id="thiru" style="display: none;">thirumaran.koval.krishnan@intel.com</div>
-	<p>
-		For VATT related, please contact:<br>
-		> Wong, Junn Hoe &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&thinsp;<button onclick="copy_to_clipboard('junnhoe')">Copy Junn Hoe's email</button></br>
-		> Adangapurathu, Eapen Abraham&ensp;<button onclick="copy_to_clipboard('abe')">Copy Abe's email</button>
-	</p>
-	<p>
-		For others, please contact:<br>
-		> Koval Krishnan, Thirumaran&emsp;&emsp;<button onclick="copy_to_clipboard('thiru')">Copy Thiru's email</button></br>
-	</p>
-</div>
--->
+  <!-- Body Container -->
+  <div class="container">
 
-<h2 style="font-size:200%;">Related WiKi:</h2>
-<p><i><b>Hope these Wiki can help you </i>&#128516;</b><br></p>
-<div>
-	<p><a href="https://wiki.ith.intel.com/display/MiniBIOS">Minibios Wiki</a> --> Minibios framework and override method</p>
-	<p><a href="https://wiki.ith.intel.com/display/ddgnvlemu/Trackers">Emulation Tracker Wiki</a> --> Tracker owner info, disable switch and TOML file configuraion</p>
-	<p><a href="https://wiki.ith.intel.com/display/ddgnvlemu/How+to+build+clone+run+model">TLS build and run</a> --> How to build and run TLS model</p>
-	<p><a href="https://wiki.ith.intel.com/display/ITSddgmtlemu/Modular+testbench+for+reduced-core+targets">Modular testbench for reduced-core target</a></p>
-</div>
-<img src="https://toggl.com/blog/wp-content/uploads/2019/09/unnamed-21.png">
+    <!-- Tabs Detail -->
+    <div class="tabs">
+      <span data-tab-value="#tab_1">Main Page</span>
+      <span data-tab-value="#tab_2">Work Log</span>
+    </div>
 
+    <!-- Tab content -->
+    <div class="tab-content">
+      <div class="tabs__tab active" id="tab_1" data-tab-info>
+        <h1 style="font-size:300%;">Welcome to Ze Hang's Space</h1>
+		<h2>My OOP Plan:</h2>
+		<p>No OOP plan until November 2024, working as usual</p>
+		<!-- <p><i><b>Please expect slow response</i></b><br></p> 
+		<div>
+			<div id="junnhoe" style="display: none;">junn.hoe.wong@intel.com</div>
+			<div id="abe" style="display: none;">eapen.abraham.adangapurathu@intel.com</div>
+			<div id="thiru" style="display: none;">thirumaran.koval.krishnan@intel.com</div>
+			<p>
+				For VATT related, please contact:<br>
+				> Wong, Junn Hoe &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;&thinsp;<button onclick="copy_to_clipboard('junnhoe')">Copy Junn Hoe's email</button></br>
+				> Adangapurathu, Eapen Abraham&ensp;<button onclick="copy_to_clipboard('abe')">Copy Abe's email</button>
+			</p>
+			<p>
+				For others, please contact:<br>
+				> Koval Krishnan, Thirumaran&emsp;&emsp;<button onclick="copy_to_clipboard('thiru')">Copy Thiru's email</button></br>
+			</p>
+		</div> -->
+		<h2>Related WiKi:</h2>
+		<p><i><b>Hope these Wiki can help you </i>&#128516;</b><br></p>
+		<div>
+			<p><a href="https://wiki.ith.intel.com/display/MiniBIOS">Minibios Wiki</a> --> Minibios framework and override method</p>
+			<p><a href="https://wiki.ith.intel.com/display/ddgnvlemu/Trackers">Emulation Tracker Wiki</a> --> Tracker owner info, disable switch and TOML file configuraion</p>
+			<p><a href="https://wiki.ith.intel.com/display/ddgnvlemu/How+to+build+clone+run+model">TLS build and run</a> --> How to build and run TLS model</p>
+			<p><a href="https://wiki.ith.intel.com/display/ITSddgmtlemu/Modular+testbench+for+reduced-core+targets">Modular testbench for reduced-core target</a></p>
+		</div>
+		<img src="https://toggl.com/blog/wp-content/uploads/2019/09/unnamed-21.png">
+      </div>
+      <div class="tabs__tab" id="tab_2" data-tab-info>
+        <h1>My Working Log</h1>
+		<h2>NVLCDIE n2p targets enabling</h2>
+		<iframe src="https://github.com/zkehgit/ze_hang_workspace/blob/main/nvlc_n2p_enabling_log.txt" height="100"></iframe>
+		<h2>MiniBios related tasks</h2>
+		<iframe src="https://github.com/zkehgit/ze_hang_workspace/blob/main/minibios_log.txt" height="100"></iframe>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+    // function to get each tab details
+    const tabs = document.querySelectorAll('[data-tab-value]')
+    const tabInfos = document.querySelectorAll('[data-tab-info]')
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = document
+          .querySelector(tab.dataset.tabValue);
+        tabInfos.forEach(tabInfo => {
+          tabInfo.classList.remove('active')
+        })
+        target.classList.add('active');
+      })
+    })
+  </script>
 </body>
+
 </html>
-
-
