@@ -106,15 +106,22 @@
 			<p><a href="https://wiki.ith.intel.com/display/ddgnvlemu/How+to+build+clone+run+model">TLS build and run</a> --> How to build and run TLS model</p>
 			<p><a href="https://wiki.ith.intel.com/display/ITSddgmtlemu/Modular+testbench+for+reduced-core+targets">Modular testbench for reduced-core target</a></p>
 		</div>
-		<img src="https://toggl.com/blog/wp-content/uploads/2019/09/unnamed-21.png">
+		<!--<img src="https://toggl.com/blog/wp-content/uploads/2019/09/unnamed-21.png">-->
+	        <img src="https://i.pinimg.com/736x/9f/95/83/9f95830d9c81bb4970899bdbd7649926.jpg">
       </div>
       <div class="tabs__tab" id="tab_2" data-tab-info>
         <h1>My Working Log</h1>
 		<h2>NVLCDIE n2p targets enabling</h2>
-            	<embed src="https://rawgithub.com/zkehgit/ze_hang_workspace/refs/heads/main/minibios_log.txt" width="1200" type="text/plain">
-		
+	      		<p>cdie_816_n2p TLS targets have been enabled and released in cdie-nvlc78-a0-nvlcn2-24ww45d</p>
+	      		<p>Enabled targets include:</p>
+	      		<p>    cdie_816_n2p_p0e16 | cdie_816_n2p_p8e0 | cdie_816_n2p_p8e16 | cdie_816_n2p_p4e8</p>
 		<h2>MiniBios related tasks</h2>
-	        <embed src="https://rawgithub.com/zkehgit/ze_hang_workspace/refs/heads/main/minibios_log.txt" width="1200" type="application/javascript">
+	      		<p>All minibios override should use “-bios_cfg <switches> -bios_cfg-” or override using yaml file. Starting from minibios version 24.04.009</p>
+	      		<p>Pending task: Enhancement for wait_for_phase4_complete across all dielet in PKG.</p>
+	        <h2>Tracker related tasks</h2>
+	      		<p>PNC guop tracker is hitting issue randomly for PKG and CDIE Zebu run</p>
+	      		<p>Error message: AttributeError: 'NoneType' object has no attribute 'slot'</p>
+	      		<p>If you are hitting above error, please up-rev your emu tracker version to 24.04.004</p>
     </div>
   </div>
   <script type="text/javascript">
